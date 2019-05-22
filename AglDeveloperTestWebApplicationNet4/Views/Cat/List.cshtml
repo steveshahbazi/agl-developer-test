@@ -1,0 +1,34 @@
+﻿@using AglDeveloperTestWebApplicationNet4.Models
+@model AglDeveloperTestWebApplicationNet4.Models.CatNames
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Here are the list of all the cats in alphabetical order under a heading of the gender of their owner</h2>
+
+@if (Model.femaleOwners.Count() == 0 && Model.maleOwners.Count() == 0)
+{
+    <text>There is no animal owner in the system.</text>
+}
+else
+{
+    <h3>Male</h3>
+    <ul>
+        @foreach (var catName in Model.maleOwners)
+        {
+            <li>@catName</li>
+        }
+    </ul>
+
+    <h3>Female</h3>
+    <ul>
+        @foreach (var catName in Model.femaleOwners)
+        {
+            <li>@catName</li>
+        }
+    </ul>
+}
+
+
